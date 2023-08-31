@@ -1,23 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Styles from "./component/style.module.css";
+
+import Recursive from "./component/Recursive";
+import { Button } from "react-bootstrap";
+
+const initialData = {
+  name: "root",
+  children: [
+    {
+      name: "child1",
+      children: [
+        { name: "child1-child1", data: "new data" },
+        { name: "child1-child2", data: "new data" },
+      ],
+    },
+    {
+      name: "child2",
+      children: [
+        { name: "child2-child1", data: "new data" },
+        { name: "child2-child2", data: "new data" },
+      ],
+    },
+  ],
+};
 
 function App() {
+  const [data, setData] = useState(initialData);
+  const [explore, setExplore] = useState(false);
+
+  const handleExplore = () => {
+    setExplore((pre) => !pre);
+  };
+
+  const handleData = (value) => {
+    setData(value);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Recursive
+        name={data.name}
+        data={data}
+        handleData={(value) => handleData(value)}
+ 
+      />
+      <div className="mt-4">
+        <Button variant="warning" onClick={handleExplore}>
+          Explore
+        </Button>
+
+        {explore && (
+          <div className={`m-4  ${Styles.Container}`}>
+            {JSON.stringify(data)}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

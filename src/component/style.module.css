@@ -1,0 +1,37 @@
+.Container {
+  color: black;
+  background-color: antiquewhite;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.accordionBtnContainer {
+  display: flex;
+  justify-content: space-between;
+  background-color: antiquewhite;
+}
+
+.accordionBtnContainer > span > button{
+margin-right: 20px;
+
+}
+
+.accordionBtnContainer > span{
+    font-size: 20px;
+    font-weight: 600;
+    
+}
+
+.label{
+    font-size: 14px ;
+    text-align: left;
+    display: block;
+    margin-left: 2px;
+    margin-bottom: 0px;
+    font-weight: 600;
+}
+
+.mainContainer{
+    margin: 10px;
+}
+
