@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./App.css";
 import Styles from "./component/style.module.css";
-
 import Recursive from "./component/Recursive";
 import { Button } from "react-bootstrap";
 
@@ -43,7 +42,6 @@ function App() {
         name={data.name}
         data={data}
         handleData={(value) => handleData(value)}
- 
       />
       <div className="mt-4">
         <Button variant="warning" onClick={handleExplore}>

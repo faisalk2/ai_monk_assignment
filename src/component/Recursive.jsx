@@ -4,13 +4,12 @@ import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import { BiSolidRightArrow, BiSolidDownArrow } from "react-icons/bi";
 
 import Styles from "./style.module.css";
-const Recursive = ({ data, name, handleData, handleRecursion }) => {
-  const [inputValue, setInputValue] = useState(data?.data ?? "");
+const Recursive = ({ data, name, handleData }) => {
+ 
   const [show, setShow] = useState(false);
 
   // data change in input field
   const handleChange = (value) => {
-    setInputValue(value);
     handleData({ name, data: value });
   };
 
@@ -98,7 +97,7 @@ const Recursive = ({ data, name, handleData, handleRecursion }) => {
                 <>
                   <Form.Label className={Styles.label}>Data:</Form.Label>
                   <Form.Control
-                    value={inputValue}
+                    value={data?.data ?? ''}
                     onChange={(e) => handleChange(e.target.value)}
                   />
                 </>
